@@ -11,21 +11,25 @@ function is(data) {
 }
 
 function convert(target, notes) {
-	var keyMap = ['1', '#1', '2', '#2', '3', '4', '#4', '5', '#5', '6', '#6', '7']; // 音程
-	var intervalMap = ['C', ['#C', 'bD'], 'D', ['#D', 'bE'], 'E', 'F', ['#F', 'bG'], 'G', ['#G', 'bA'], 'A', ['#A', 'bB'], 'B']; //所有调名
+	var keyMap1 = ['1', '#1', '2', '#2', '3', '4', '#4', '5', '#5', '6', '#6', '7']; // 音程
+	var keyMap2 = ['1', 'b2', '2', 'b3', '3', '4', 'b5', '5', 'b6', '6', 'b7', '7']; // 音程
+	var intervalMap1 = ['C', '#C', 'D', '#D', 'E', 'F', '#F', 'G', '#G', 'A', '#A', 'B']; //所有调名
+	var intervalMap2 = ['C', 'bD', 'D', 'bE', 'E', 'F', 'bG', 'G', 'bA', 'A', 'bB', 'B']; //所有调名
+
+	var intervalMap = intervalMap1;
+	var keyMap = keyMap1;
+
+	if (!intervalMap1.includes(target) && intervalMap2.includes(target)) {
+		intervalMap = intervalMap2;
+		keyMap = keyMap2;
+	}
+	
 	var base = 0;
 
 	for (var k in intervalMap) {
-		if (is(intervalMap[k])('Array')) {
-			if (intervalMap[k].includes(target)) {
-				base = k;
-				break;
-			}
-		} else {
-			if (intervalMap[k] === target) {
-				base = k;
-				break;
-			}
+		if (intervalMap[k] === target) {
+			base = k;
+			break;
 		}
 	}
 
