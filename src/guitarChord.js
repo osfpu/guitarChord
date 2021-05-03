@@ -685,7 +685,7 @@ class ChordSvg {
 		// 在图案左侧绘制品格位置偏移标记
 		this.setFretOffset(svg, relativeFret, minFret, barreStringTo === 6);
 		// 在图案上侧绘制和弦名称
-		this.setChordName(svg, chordName.getChordName(chordTone));
+		// this.setChordName(svg, chordName.getChordName(chordTone));
 		// 将生成号的svg图案塞到指定结构中
 		target ? target.appendChild(svg) : document.body.appendChild(svg);
 	}

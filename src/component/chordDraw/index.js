@@ -90,7 +90,7 @@ class ChordDraw extends Component {
 		container.innerHTML = "";
 
 		setTimeout(() => {
-			this.props.hideLoading();
+			// this.props.hideLoading();
 		}, 200);
 		setTimeout(() => {
 			if (chordResult.length === 0) {
@@ -115,7 +115,7 @@ class ChordDraw extends Component {
 	render() {
 		return (
 			<div className="container-chordDraw">
-				<div className={"draw-info"+(this.state.info?" show":"")}>{this.state.info}</div>
+				{/* <div className={"draw-info"+(this.state.info?" show":"")}>{this.state.info}</div> */}
         		<div id="chord_draw"></div>
       		</div>
 		);
